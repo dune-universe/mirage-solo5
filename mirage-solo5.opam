@@ -13,18 +13,16 @@ tags: [
   "org:mirage"
 ]
 build: [
-  [ "ocaml" "pkg/pkg.ml" "build" "--pinned" "%{pinned}%" ] { os != "openbsd" }
-  [ "ocaml" "pkg/pkg.ml" "build" "--pinned" "false" ] { os = "openbsd" }
+  ["dune" "subst"] {pinned}
+  ["dune" "build" "-p" name "-j" jobs]
+  ["dune" "runtest" "-p" name] {with-test}
 ]
 depends: [
-  "ocamlfind" {build}
-  "ocamlbuild" {build}
-  "topkg" {build & >= "0.9.0"}
-  "ocb-stubblr" {build}
+  "dune" {build & >= "1.0"}
   "ocaml" {>= "4.04.2"}
   "cstruct" {>= "1.0.1"}
   "lwt" {>= "2.4.3"}
-  "ocaml-freestanding" {>= "0.4.1"}
+  "ocaml-freestanding" {>= "0.4.4"}
   "logs"
   ("solo5-bindings-hvt" | "solo5-bindings-virtio" | "solo5-bindings-muen" | "solo5-bindings-genode")
 ]

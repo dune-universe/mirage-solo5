@@ -2,9 +2,9 @@
  * http://www.ocsigen.org/lwt
  * Module Lwt_mirage, based on Lwt_unix
  * Copyright (C) 2010 Anil Madhavapeddy
- * Copyright (C) 2005-2008 Jérôme Vouillon
- * Laboratoire PPS - CNRS Université Paris Diderot
- *                    2009 Jérémie Dimino
+ * Copyright (C) 2005-2008 Jï¿½rï¿½me Vouillon
+ * Laboratoire PPS - CNRS Universitï¿½ Paris Diderot
+ *                    2009 Jï¿½rï¿½mie Dimino
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as
@@ -24,6 +24,7 @@
  *)
 
 open Lwt
+[@@@warning "-3"]
 
 type +'a io = 'a Lwt.t
 

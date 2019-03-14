@@ -23,6 +23,8 @@
 
 open Lwt
 
+[@@@warning "-3"]
+
 external solo5_yield : [`Time] Time.Monotonic.t -> bool = "mirage_solo5_yield"
 
 let exit_hooks = Lwt_sequence.create ()
